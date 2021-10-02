@@ -79,6 +79,16 @@ const CenterContainer = styled.div`
   display: flex;
 `;
 
+const CarrinhoContainer = styled.div`
+  width: 25%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+`  
+
 export class App extends React.Component {
   state = {
     listaDeCompras: [],
@@ -90,10 +100,21 @@ export class App extends React.Component {
     this.setState({order: Number(ev.target.value)})
   }
 
+
+
   addNoCarrinho = (produto) => {
     const lista = this.state.listaDeCompras
     this.setState({...this.state, listaDeCompras: {...lista, produto}})
   }
+
+  removeItemCarrinho = (id) => {
+  
+    const novosItens = this.state.listaDeCompras.filter((item) => {
+      return item.id !== id;
+    });
+    this.setState({ listaDeCompras: novosItens });
+  }
+
 
   ordenaDecrescente = (array) => {
     return array.sort((a,b)=>{
@@ -127,7 +148,14 @@ export class App extends React.Component {
           )}
         </ProdutoApp>
       </div>
-      <Carrinho />
+        <CarrinhoContainer>
+        
+        
+        <Carrinho produto={this.addNoCarrinho} />
+        
+
+     
+        </CarrinhoContainer>
       </CenterContainer>
     )
   }
