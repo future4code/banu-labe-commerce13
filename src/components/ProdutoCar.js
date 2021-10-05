@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import App from "../App";
+import Carrinho from "./Carrinho";
 
 const CarProduto = styled.div`
   border: 1px solid black;
@@ -19,18 +21,29 @@ const CarConteiner = styled.div`
   }
 `;
 
+
 export class ProdutoCar extends React.Component{
+
+     addNoCarrinho = (produto) => {
+
+    
+    const lista = this.state.listaDeCompras
+    this.setState({...this.state, listaDeCompras: {...lista, produto}})
+  }
+
     render() {
         const produto = this.props.produto
-        return <CarProduto>
-            <ImageProduto src={produto?.imageUrl} alt='imagem' />
-            <CarConteiner>
-            <p>{produto?.name}</p>
-            <p>{produto?.author}</p>
-            <p>R$ {produto?.value}</p>
-            {this.props.addNoCarrinho}
+        return  <CarConteiner>
+            <ImageProduto src={produto.imageUrl} alt='imagem' />
+            <CarProduto>
+            <p>{produto.name}</p>
+            <p>{produto.author}</p>
+            <p>R$ {produto.value}</p>
+            <button>Adicionar ao carrinho</button>
+            
+            </CarProduto>
             </CarConteiner>
-        </CarProduto>
+        
 
     }
 }
