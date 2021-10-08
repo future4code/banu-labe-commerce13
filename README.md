@@ -1,1 +1,7 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+#LOJA DE LIVROS
+- Mostrando todos os produtos 
+- forma de ordenar os produtos por ordem crescente ou decrescente de preço 
+- Produtos:
+    - botão que permita adicioná-los ao carrinho
+    - exibir o nome, preço e imagem em um card
+
