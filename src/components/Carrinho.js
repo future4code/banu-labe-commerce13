@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import ProdutoCar from "./ProdutoCar";
 
 const AddCart = styled.div`
     border: 1px solid black;
@@ -13,17 +14,34 @@ const Align = styled.div`
     }
 `;
 
+const CarrinhoTitulo = styled.h3`
+padding: 20px;
+
+`
+
+const produtosCarrinho = ''
+
+const ValorProduto = ''
+const ProdutoCarrinho = ''
+
 
 
 export class Carrinho extends React.Component{
+
+
  render() {
      return <AddCart>
-         <h3>Carrinho:</h3>
+        <CarrinhoTitulo> 
+            Carrinho de compras
+        </CarrinhoTitulo>
          <Align>
-            <p>Produto 1</p>
-            <button>Remover</button>
+            <ProdutoCar>
+
+            </ProdutoCar>
+            <button onClick={this.removeItem}>Remover item</button>
          </Align>
          <p>Valor total:</p>
+            
      </AddCart>
  }
 
